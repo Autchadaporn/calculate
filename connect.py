@@ -29,10 +29,13 @@ def calculate():
     Subject = request.form["Subject"]
     Unit = request.form["Unit"]
     Grade = request.form["Grade"]
+    Total1 = (float(Unit) * float(Grade))
     print(Subject,Unit,Grade)
-    x=10
+    print (Subject,Total1)
     
-    return render_template("index.html",datas=rows,item=x)
+    
+    
+    return render_template("index.html",datas=rows,item=Total1)
 
 if __name__== "__main__" :
     app.run(debug=True)
