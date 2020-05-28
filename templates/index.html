@@ -12,15 +12,16 @@
     <div align="center">
     <h2>ฟอร์มคำนวณเกรด</h2>
     <form action="/calculate" method="POST">
+    
         <table class="table table-bordered" >
             <tr>
                 <th>รหัสแถว</th>
                 <th>รหัสวิชา</th>
                 <th>ชื่อวิชา</th>
                 <th>หน่วยกิต</th>
-                <th>เกรด</th>
+                <th>เกรดที่คาดว่าจะได้</th>
             </tr>
-            {% for row in datas %} <!--datas ที่รับค่ามาจาก index() -->
+    {% for row in datas %} <!--datas ที่รับค่ามาจาก index() -->                
             <tr>
                 <td>{{row.Rows_id}}</td>
                 <td><input name="Subject" value="{{row.Subject_ID}}" readonly></td>
@@ -37,10 +38,11 @@
                     <option value="0.0">F</option>
                 </select></td>
             </tr>
-         {% endfor %}   
+    {% endfor %}   
         </table>
         <input type="submit" class="btn default">
         <input type="text" name=""value="{{item}}">
+    
     </form> 
     </div>  
 </body>
