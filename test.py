@@ -13,6 +13,8 @@ def comparegrade(Grade): #เปลี่ยนเกรดที่รับค
         return 1.5
     elif Grade == "D" :
         return 1
+    elif Grade == "F" :
+        return 0
     else:
         return 0
 

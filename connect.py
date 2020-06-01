@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, url_for, session,flash
+from flask import Flask, render_template, redirect, request, url_for, session,flash, request,jsonify
 from flask_mysqldb import MySQL, MySQLdb
 from sqlalchemy import text
 import bcrypt
@@ -26,15 +26,20 @@ def calculate():
     cur=mysql.connection.cursor()
     cur.execute('SELECT * FROM gpa')
     rows=cur.fetchall()
-    for row in rows :
-        print(row)
-    Subject = request.form["Subject"]
-    Unit = request.form["Unit"]
-    Grade = request.form["Grade"]
+    # for row in rows :
+    #     print(row)
+
+    Subject = request.form.getlist("Subject[]") #รับค่าเป็นarray
+    Unit = request.form.getlist("Unit[]")
+    Grade = request.form.getlist("Grade[]")
+    
+    print("***********************************************************************")
     print(Subject,Unit,Grade)
-    Total1 = (float(Unit) * float(Grade))
-    print (Subject,Total1)
-    return render_template("index.html",datas=rows,item=Total1)
+    # Total1 = (float(Unit) * float(Grade))
+    # print (Subject,Total1)
+    print("***********************************************************************")
+    
+    return render_template("index.html",datas=rows)
 
 if __name__== "__main__" :
     app.run(debug=True)
